@@ -91,11 +91,10 @@ print_status "Reset da fonte"
 echo -e "\n${YELLOW}=== Resumo das Operações ===${NC}"
 for key in "${!results[@]}"; do
     if [ ${results[$key]} -eq 0 ]; then
-        status="${GREEN}Sucesso${NC}"
+        echo -e "$(printf '%-20s' "$key"): ${GREEN}Sucesso${NC}"
     else
-        status="${RED}Falha${NC}"
+        echo -e "$(printf '%-20s' "$key"): ${RED}Falha${NC}"
     fi
-    printf "%-20s: %s\n" "$key" "$status"
 done
 
 echo -e "\n${YELLOW}Para aplicar todas as mudanças, faça logout e login novamente.${NC}"
